@@ -6,7 +6,7 @@ import { Menu, Briefcase, Tag, HelpCircle, Phone } from "lucide-react";
 
 export function SiteHeader() {
   const [hoveredLink, setHoveredLink] = useState(null);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled] = useState(false);
 
   const links = [
     { href: "/", label: "Home", icon: Briefcase },
@@ -15,10 +15,6 @@ export function SiteHeader() {
     { href: "/#contact-us", label: "Contact Us", icon: Phone },
   ];
 
-  // Simulate scroll effect (you can connect this to actual scroll events)
-  const handleScroll = () => {
-    setIsScrolled(window.scrollY > 50);
-  };
 
   return (
     <motion.header 
@@ -86,6 +82,7 @@ export function SiteHeader() {
                 <motion.div
                   key={link.href}
                   className="relative"
+                  // @ts-ignore
                   onMouseEnter={() => setHoveredLink(index)}
                   onMouseLeave={() => setHoveredLink(null)}
                   whileHover={{ y: -2 }}

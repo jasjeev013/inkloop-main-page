@@ -58,7 +58,8 @@ export default function CountdownTimer() {
           transition={{ delay: i * 0.15, duration: 0.6, ease: "easeOut" }}
           className="relative"
         >
-          <Card className="backdrop-blur-lg bg-[#EEDFC5]/40 border border-black/10 shadow-md rounded-xl w-28 h-32 flex flex-col items-center justify-center overflow-hidden">
+            
+          <Card className="backdrop-blur-lg bg-[#EEDFC5] border border-[#EEDFC5] rounded-xl w-28 h-32 flex flex-col items-center justify-center overflow-hidden">
             <CardContent className="flex flex-col items-center justify-center p-2 relative">
               <div className="relative w-full h-16 flex items-center justify-center">
                 <AnimatePresence mode="wait">

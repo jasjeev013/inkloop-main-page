@@ -74,7 +74,7 @@ const ComingSoon = () => {
     function createInitialParticles() {
       const baseParticleCount = 7000
       const particleCount = Math.floor(
-        baseParticleCount * Math.sqrt((canvas.width * canvas.height) / (1920 * 1080))
+        baseParticleCount * Math.sqrt((canvas!.width * canvas!.height) / (1920 * 1080))
       )
       for (let i = 0; i < particleCount; i++) {
         const particle = createParticle()

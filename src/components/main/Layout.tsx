@@ -57,7 +57,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, []);*/
 
   return (
-    <div className="font-inter min-h-screen bg-[#EEDFC5] text-white">
+    <div className="font-inter min-h-screen bg-[#f1eee7] text-white">
       <div className="relative z-10">{children}</div>
     </div>
   );

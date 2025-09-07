@@ -86,7 +86,7 @@ const ComingSoon = () => {
     function animate(scale: number) {
       if (!ctx || !canvas) return
       ctx.clearRect(0, 0, canvas.width, canvas.height)
-      ctx.fillStyle = "#EEDFC5"
+      ctx.fillStyle = "#f1eee7"
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       const { x: mouseX, y: mouseY } = mousePositionRef.current

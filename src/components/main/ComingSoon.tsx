@@ -90,7 +90,7 @@ const ComingSoon = () => {
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       const { x: mouseX, y: mouseY } = mousePositionRef.current
-      const maxDistance = isMobile ? 80 : 200
+      const maxDistance = isMobile ? 80 : 120
 
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i]

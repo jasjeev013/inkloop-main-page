@@ -42,7 +42,7 @@ const ComingSoon = () => {
       ctx.font = `bold ${fontSize}px Arial, sans-serif`
       ctx.textAlign = "center"
       ctx.textBaseline = "middle"
-      ctx.fillText("COMING SOON", canvas.width / 2, canvas.height / 2)
+      ctx.fillText("Coming Soon", canvas.width / 2, canvas.height / 2)
       ctx.restore()
       textImageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
       ctx.clearRect(0, 0, canvas.width, canvas.height)

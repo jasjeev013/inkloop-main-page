@@ -9,11 +9,13 @@ import Careers from "./pages/Careers";
 import CodeOfConduct from "./pages/CodeOfConduct";
 import Legal from "./pages/Legal";
 import NotFound from "./pages/NotFound";
+import MainPage from "./pages/MainPage";
 function App() {
   return (
     <Layout>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path="/soon" element={<HomePage />} />
         <Route path="/about" element={<About />} />
         <Route path="/jobs" element={<Careers />} />
         <Route path="/coc" element={<CodeOfConduct />} />

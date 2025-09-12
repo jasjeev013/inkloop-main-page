@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Briefcase, Tag, HelpCircle, Phone } from "lucide-react";
+// import { Button } from "@/components/ui/button";
+// import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {  Briefcase, Tag, HelpCircle, Phone } from "lucide-react";
 
 export function SiteHeader() {
   const [hoveredLink, setHoveredLink] = useState(null);
@@ -17,14 +17,14 @@ export function SiteHeader() {
 
 
   return (
-    <motion.header 
+    <motion.header
       className="sticky top-0 z-50 p-4"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="container mx-auto max-w-4xl">
-        <motion.div 
+        <motion.div
           className="relative overflow-hidden rounded-full"
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
@@ -33,13 +33,13 @@ export function SiteHeader() {
           <motion.div
             className="absolute inset-0 backdrop-blur-xl bg-gradient-to-r from-[#A68A64]/30 via-[#A68A64]/20 to-[#A68A64]/30 border border-white/20 rounded-full"
             initial={{ opacity: 0.8 }}
-            animate={{ 
+            animate={{
               opacity: isScrolled ? 0.95 : 0.8,
               backdropFilter: isScrolled ? "blur(20px)" : "blur(15px)"
             }}
             transition={{ duration: 0.3 }}
           />
-          
+
           {/* Animated Glass Shine Effect */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full"
@@ -56,7 +56,7 @@ export function SiteHeader() {
               background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%)"
             }}
           />
-          
+
           {/* Main Content */}
           <div className="relative flex h-14 items-center justify-between px-6">
             {/* Logo */}
@@ -82,7 +82,7 @@ export function SiteHeader() {
                 <motion.div
                   key={link.href}
                   className="relative"
-                  // @ts-ignore
+                  // @ts-expect-error – this prop is missing in the type but exists at runtime
                   onMouseEnter={() => setHoveredLink(index)}
                   onMouseLeave={() => setHoveredLink(null)}
                   whileHover={{ y: -2 }}
@@ -101,14 +101,14 @@ export function SiteHeader() {
                       />
                     )}
                   </AnimatePresence>
-                  
+
                   <a
                     href={link.href}
                     className="relative z-10 px-4 py-2 hover:text-black/80 transition-colors flex items-center gap-2"
                   >
                     <motion.div
-                      animate={{ 
-                        rotate: hoveredLink === index ? 360 : 0,
+                      animate={{
+                        // rotate: hoveredLink === index ? 360 : 360+,
                         scale: hoveredLink === index ? 1.1 : 1
                       }}
                       transition={{ duration: 0.3 }}
@@ -121,122 +121,43 @@ export function SiteHeader() {
               ))}
             </nav>
 
-            {/* CTA Button */}
-            <div className="hidden md:flex">
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Button className="relative overflow-hidden bg-[#0CBCC4] text-black rounded-2xl px-6 py-2.5 hover:bg-[#0CBCC4]/80 transition-all shadow-lg border border-white/30 backdrop-blur-sm">
-                  {/* Button Shine Effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                    animate={{
-                      x: ["-100%", "100%"]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      repeatDelay: 3,
-                      ease: "easeInOut"
-                    }}
-                  />
-                  <a href="https://join.inkloop.app" target="_blank" rel="noopener noreferrer" className="relative z-10">
-                    Join Waitlist
-                  </a>
-                </Button>
-              </motion.div>
-            </div>
+
 
             {/* Mobile Nav */}
             <div className="md:hidden">
-              <Sheet>
-                <SheetTrigger asChild>
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Button 
-                      variant="outline" 
-                      size="icon"
-                      className="bg-white/10 backdrop-blur-sm border-white/30 hover:bg-white/20"
-                    >
-                      <motion.div
-                        animate={{ rotate: 0 }}
-                        whileHover={{ rotate: 180 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <Menu className="h-5 w-5" />
-                      </motion.div>
-                    </Button>
-                  </motion.div>
-                </SheetTrigger>
-                <SheetContent 
-                  side="right" 
-                  className="bg-[#EEDFC5]/80 backdrop-blur-xl text-black w-64 border-l border-white/20"
+
+
+    
+                 <motion.div
+                 
+                  className="relative"
+                   // @ts-expect-error – this prop is missing in the type but exists at runtime
+                  onMouseEnter={() => setHoveredLink(index)}
+                  onMouseLeave={() => setHoveredLink(null)}
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  <motion.div
-                    initial={{ x: 100, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.3 }}
+                  {/* Hover Background */}
+                  <a
+                    href="/#contact-us"
+                    className="relative z-10 px-4 py-2 text-black/80 transition-colors flex items-center gap-2"
                   >
-                    <div className="p-4 flex items-center gap-2 border-b border-white/20">
-                      <motion.img
-                        src="/inkloop-heading.png"
-                        alt="Inkloop"
-                        className="w-18 filter drop-shadow-sm"
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.2 }}
-                      />
-                    </div>
-
-                    <nav className="flex flex-col gap-1 mt-2">
-                      {links.map((link, index) => (
-                        <motion.div
-                          key={link.href}
-                          initial={{ x: 50, opacity: 0 }}
-                          animate={{ x: 0, opacity: 1 }}
-                          transition={{ delay: index * 0.1, duration: 0.3 }}
-                          whileHover={{ x: 10, scale: 1.02 }}
-                        >
-                          <a
-                            href={link.href}
-                            className="flex items-center gap-3 px-4 py-3 hover:bg-white/20 rounded-lg backdrop-blur-sm transition-all duration-200"
-                          >
-                            <motion.div
-                              whileHover={{ rotate: 360, scale: 1.2 }}
-                              transition={{ duration: 0.3 }}
-                            >
-                              <link.icon className="h-4 w-4" />
-                            </motion.div>
-                            <span>{link.label}</span>
-                          </a>
-                        </motion.div>
-                      ))}
-                    </nav>
-
-                    <motion.div 
-                      className="mt-auto border-t border-white/20 p-4"
-                      initial={{ y: 50, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.4, duration: 0.3 }}
+                    <motion.div
+                      animate={{
+                        // rotate: hoveredLink === index ? 360 : 360+,
+                        scale: hoveredLink === 1 ? 1.1 : 1
+                      }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <Button className="w-full bg-[#0CBCC4]/90 backdrop-blur-sm text-black shadow-lg border border-white/30 hover:bg-[#0CBCC4] transition-all">
-                          <a href="https://join.inkloop.app" target="_blank" rel="noopener noreferrer">
-                            Join Waitlist
-                          </a>
-                        </Button>
-                      </motion.div>
+                      <Phone className="h-4 w-4" />
                     </motion.div>
-                  </motion.div>
-                </SheetContent>
-              </Sheet>
+                    Contact Us
+                  </a>
+                </motion.div>
+      
+
+
+
             </div>
           </div>
 
